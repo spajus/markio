@@ -1,11 +1,8 @@
 require 'spec_helper'
 
-describe Markio::Parser do
-
+describe 'parser' do
   it 'should parse single bookmark' do
-    parser = Markio::Parser.new("spec/test_data/one_bookmark.html")
-    bookmarks = []
-    parser.each { |b| bookmarks << b }
+    bookmarks = Markio.parse("spec/test_data/one_bookmark.html")
 
     bookmarks.should_not be_nil
     bookmarks.class.should be Array
@@ -23,9 +20,19 @@ describe Markio::Parser do
   end
 
   it 'should parse multiple bookmarks' do
-    parser = Markio::Parser.new("spec/test_data/many_bookmarks.html")
-    bookmarks = []
-    parser.each { |b| bookmarks << b }
+    bookmarks = Markio.parse("spec/test_data/many_bookmarks.html")
+    bookmarks.length.should eq 11
+    bookmarks.first.folders.length.should eq 1
+    bookmarks.first.folders.first.should eq "Bookmarks Bar"
+    bookmarks.last.folders.length.should eq 2
+  end
+
+  it 'should parse nested bookmarks' do
+    bookmarks = Markio.parse("spec/test_data/nested_bookmarks.html")
+
+    bookmarks.length.should eq 9
+    bookmarks.first.folders.length.should eq 0
+    bookmarks.last.folders.length.should eq 2
   end
 
 end

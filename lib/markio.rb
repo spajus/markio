@@ -1,12 +1,13 @@
 require "markio/version"
-require "markio/parser"
+require "markio/bookmarks_file"
 require "markio/bookmark"
-require "markio/folder"
 module Markio
-  def parse(file)
-    parser = Markio::Parser.new(file)
-    result = []
-    parser.each { |bookmark| result << bookmark }
-    result
+  def Markio.parse(file)
+    file = File.open(file) unless file.is_a? File
+    bookmarks = Markio::BookmarksFile.new
+    parser = Nokogiri::XML::SAX::Parser.new(bookmarks)
+    xml = Nokogiri::XML(file).to_xml
+    parser.parse(xml)
+    bookmarks.bookmarks
   end
 end
