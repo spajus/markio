@@ -30,7 +30,7 @@ describe 'parser' do
   it 'should parse nested bookmarks' do
     bookmarks = Markio.parse("spec/test_data/nested_bookmarks.html")
 
-    bookmarks.length.should eq 9
+    bookmarks.length.should eq 10
     bookmarks.first.folders.length.should eq 0
     bookmarks.last.folders.length.should eq 2
   end
