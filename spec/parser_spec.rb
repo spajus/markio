@@ -35,4 +35,13 @@ describe 'parser' do
     bookmarks.last.folders.length.should eq 2
   end
 
+  it 'should raise error for non existing files' do
+    expect { Markio.parse("spec/test_data/not_found.html") }.to raise_error
+  end
+
+  it 'should handle corrupted data' do
+    bookmarks = Markio.parse("spec/test_data/corrupted.html")
+    bookmarks.should eq []
+  end
+
 end
