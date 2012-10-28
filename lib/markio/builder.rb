@@ -36,7 +36,11 @@ END
         html.p
         @bookmarks.each do |b|
           html.dt {
-            html.a(b.title, 'href' => b.href)
+            params = { :href => b.href }
+            params[:add_date] = b.add_date.to_time.to_i if b.add_date
+            params[:last_visit] = b.last_visit.to_time.to_i if b.last_visit
+            params[:last_modified] = b.last_modified.to_time.to_i if b.last_modified
+            html.a(b.title, params)
           }
         end
       }
