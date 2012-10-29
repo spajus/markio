@@ -6,39 +6,48 @@ A Ruby Gem for parsing [Netscape Bookmark File Format](http://msdn.microsoft.com
 
 Add this line to your application's Gemfile:
 
-    gem 'markio'
+```ruby
+gem 'markio'
+```
 
 And then execute:
 
-    $ bundle
+```bash
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install markio
+```bash
+$ gem install markio
+```
 
 ## Usage
 
 ### Parsing bookmarks file
 
-    bookmarks = Markio::parse(File.open('/path/to/bookmarks.html'))
-    bookmarks.each do |b|
-      b.title           # String
-      b.href            # String with bookmark URL
-      b.folders         # Array of strings - folders (tags)
-      b.add_date        # DateTime
-      b.last_visit      # DateTime
-      b.last_modified   # DateTime
-    end
+```ruby
+bookmarks = Markio::parse(File.open('/path/to/bookmarks.html'))
+bookmarks.each do |b|
+  b.title           # String
+  b.href            # String with bookmark URL
+  b.folders         # Array of strings - folders (tags)
+  b.add_date        # DateTime
+  b.last_visit      # DateTime
+  b.last_modified   # DateTime
+end
+```
 
 ### Building bookmarks file
 
-    builder = Markio::Builder.new
-    builder.bookmarks << Bookmark.create({
-        :title => "Google",
-        :href => "http://google.com"
-    })
-    file_contents = builder.build_string
-
+```ruby
+builder = Markio::Builder.new
+builder.bookmarks << Bookmark.create({
+  :title => "Google",
+  :href => "http://google.com"
+})
+file_contents = builder.build_string
+```
 ## TODO
 
   - Builder output to file
