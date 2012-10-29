@@ -19,6 +19,8 @@ Or install it yourself as:
 
 ## Usage
 
+### Parsing bookmarks file
+
     bookmarks = Markio::parse(File.open('/path/to/bookmarks.html'))
     bookmarks.each do |b|
       b.title           # String
@@ -28,6 +30,20 @@ Or install it yourself as:
       b.last_visit      # DateTime
       b.last_modified   # DateTime
     end
+
+### Building bookmarks file
+
+    builder = Markio::Builder.new
+    builder.bookmarks << Bookmark.create({
+        :title => "Google",
+        :href => "http://google.com"
+    })
+    file_contents = builder.build_string
+
+## TODO
+
+  - Builder output to file
+  - Builder should not ignore bookmark folders
 
 ## Contributing
 
