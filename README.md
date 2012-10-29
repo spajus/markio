@@ -19,7 +19,7 @@ Or install it yourself as:
 
 ## Usage
 
-    bookmarks = Markio::parse('/path/to/bookmarks.html')
+    bookmarks = Markio::parse(File.open('/path/to/bookmarks.html'))
     bookmarks.each do |b|
       b.title           # String
       b.href            # String with bookmark URL
