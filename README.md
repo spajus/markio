@@ -1,7 +1,6 @@
 # Markio
 
-A ruby gem for parsing Netscape Bookmark File Format
-http://msdn.microsoft.com/en-us/library/aa753582(v=vs.85).aspx
+A Ruby Gem for parsing [Netscape Bookmark File Format](http://msdn.microsoft.com/en-us/library/aa753582\(v=vs.85\).aspx)
 
 ## Installation
 
