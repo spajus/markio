@@ -16,7 +16,7 @@ class Markio::Bookmark
 
   def == other
     unless other.nil? or other.class != self.class
-      other.href == href
+      other.href == href and other.title == title
     end
   end
 end

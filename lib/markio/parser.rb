@@ -12,7 +12,7 @@ module Markio
       traverse(@document, []) do |bookmark|
         bookmarks << bookmark
       end
-      bookmarks
+      consolidate bookmarks
     end
 
     private
@@ -53,6 +53,19 @@ module Markio
 
     def parse_timestamp(timestamp)
       Time.at(timestamp.to_i).to_datetime if timestamp
+    end
+
+    def consolidate(bookmarks)
+      consolidated = []
+      bookmarks.each do |b|
+        index = consolidated.index b
+        unless index.nil?
+          consolidated[index].folders += b.folders
+        else
+          consolidated << b
+        end
+      end
+      consolidated
     end
 
   end
