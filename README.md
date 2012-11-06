@@ -47,7 +47,9 @@ builder.bookmarks << Bookmark.create({
   :href => "http://google.com"
 })
 file_contents = builder.build_string
+File.open('/path/to/bookmarks.html', 'w') { |f| f.write file_contents }
 ```
+
 ## TODO
 
   - Builder output to file
