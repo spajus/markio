@@ -9,8 +9,8 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Tomas Varaneckas"]
   gem.email         = ["tomas.varaneckas@gmail.com"]
   gem.description   = %q{Import/export utility for Netscape Bookmark Format}
-  gem.summary       = %q{Import/export utility for Netscape Bookmark Format}
-  gem.homepage      = ""
+  gem.summary       = %q{Handles parsing and building Netscabe Bookmark Format in Ruby way.}
+  gem.homepage      = "https://github.com/spajus/markio"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
