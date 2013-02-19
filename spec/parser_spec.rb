@@ -11,7 +11,8 @@ module Markio
       bookmark = bookmarks[0]
       bookmark.title.should eq 'Save It - Simple, secure bookmarks'
       bookmark.href.should eq 'https://saveit.in/'
-      bookmark.folders.length.should eq 0
+      bookmark.folders.length.should eq 1
+      bookmark.folders.first.should eq "Bookmarking"
       bookmark.add_date.should_not be_nil
       bookmark.last_visit.should_not be_nil
       bookmark.last_modified.should_not be_nil
@@ -26,6 +27,14 @@ module Markio
       bookmarks.first.folders.length.should eq 1
       bookmarks.first.folders.first.should eq "Bookmarks Bar"
       bookmarks.last.folders.length.should eq 2
+    end
+
+    it 'should parse delicious bookmarks' do
+      bookmarks = Markio.parse File.open "spec/assets/delicious_bookmarks.html"
+      bookmarks.length.should eq 5
+      bookmarks.first.folders.length.should eq 5
+      bookmarks.first.folders.first.should eq "food"
+      bookmarks.last.folders.length.should eq 3
     end
 
     it 'should parse nested bookmarks' do

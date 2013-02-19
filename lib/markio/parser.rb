@@ -44,7 +44,7 @@ module Markio
       bookmark = Bookmark.new
       bookmark.href = data['href']
       bookmark.title = node.text
-      bookmark.folders = Array.new folders
+      bookmark.folders = (Array.new(folders) + parse_tags(data['tags'])).uniq
       bookmark.add_date = parse_timestamp data['add_date']
       bookmark.last_visit = parse_timestamp data['last_visit']
       bookmark.last_modified = parse_timestamp data['last_modified']
@@ -53,6 +53,10 @@ module Markio
 
     def parse_timestamp(timestamp)
       Time.at(timestamp.to_i).to_datetime if timestamp
+    end
+
+    def parse_tags(tags)
+      tags ? tags.split(/,/x) : []
     end
 
     def consolidate(bookmarks)
