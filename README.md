@@ -42,7 +42,7 @@ end
 
 ```ruby
 builder = Markio::Builder.new
-builder.bookmarks << Bookmark.create({
+builder.bookmarks << Markio::Bookmark.create({
   :title => "Google",
   :href => "http://google.com"
 })
