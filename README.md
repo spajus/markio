@@ -2,6 +2,8 @@
 
 A Ruby Gem for parsing [Netscape Bookmark File Format](http://msdn.microsoft.com/en-us/library/aa753582\(v=vs.85\).aspx)
 
+[![Build Status](https://travis-ci.org/spajus/markio.png)](https://travis-ci.org/spajus/markio)
+
 ## Installation
 
 Add this line to your application's Gemfile:
