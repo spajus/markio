@@ -1,7 +1,7 @@
 require 'date'
 class Markio::Bookmark
 
-  attr_accessor :title, :href, :add_date, :last_visit, :last_modified, :folders
+  attr_accessor :title, :href, :add_date, :last_visit, :last_modified, :folders, :icon_uri, :icon
 
   def self.create data
     bookmark = new
@@ -11,6 +11,8 @@ class Markio::Bookmark
     bookmark.last_visit = data[:add_date]
     bookmark.last_modified = data[:last_modified]
     bookmark.folders = data[:folders] || []
+    bookmark.icon_uri = data[:icon_uri]
+    bookmark.icon = data[:icon]
     bookmark
   end
 

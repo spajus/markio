@@ -48,6 +48,8 @@ module Markio
       bookmark.add_date = parse_timestamp data['add_date']
       bookmark.last_visit = parse_timestamp data['last_visit']
       bookmark.last_modified = parse_timestamp data['last_modified']
+      bookmark.icon = data['icon']
+      bookmark.icon_uri = data['icon_uri']
       bookmark
     end
 

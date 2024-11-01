@@ -19,6 +19,9 @@ module Markio
       bookmark.add_date.class.should be DateTime
       bookmark.last_visit.class.should be DateTime
       bookmark.last_modified.class.should be DateTime
+      bookmark.icon.should eq "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQD"\
+        "wAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+      bookmark.icon_uri.should eq "http://www.mozilla.org/2005/made-up-favicon/0-1350925942950"
     end
 
     it 'should parse multiple bookmarks' do
@@ -53,6 +56,5 @@ module Markio
       bookmarks = Markio.parse File.open "spec/assets/corrupted.html"
       bookmarks.should eq []
     end
-
   end
 end
