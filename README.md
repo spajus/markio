@@ -38,6 +38,8 @@ bookmarks.each do |b|
   b.add_date        # DateTime
   b.last_visit      # DateTime
   b.last_modified   # DateTime
+  b.icon            # String
+  b.icon_uri        # String
 end
 ```
 
@@ -47,16 +49,13 @@ end
 builder = Markio::Builder.new
 builder.bookmarks << Markio::Bookmark.create({
   :title => "Google",
-  :href => "http://google.com"
+  :href => "http://google.com",
+  :icon => "data:image/png;base64,iVBORw==",
+  :icon_uri => "https://awesome.com/favicon.ico"
 })
 file_contents = builder.build_string
 File.open('/path/to/bookmarks.html', 'w') { |f| f.write file_contents }
 ```
-
-## TODO
-
-  - Builder output to file
-  - Builder should not ignore bookmark folders
 
 ## Contributing
 

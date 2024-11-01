@@ -17,7 +17,9 @@ module Markio
         :href => "http://test.com",
         :add_date => Date.parse('2012-01-12 11:22:33').to_datetime,
         :last_visit => Date.parse('2012-01-13 10:20:30').to_datetime,
-        :last_modified => Date.parse('2012-01-14 10:21:31').to_datetime
+        :last_modified => Date.parse('2012-01-14 10:21:31').to_datetime,
+        :icon => "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+        :icon_uri => "http://www.mozilla.org/2005/made-up-favicon/0-1350925942950"
       })
       file_contents = builder.build_string
       file_contents.length.should_not be_nil
@@ -26,6 +28,8 @@ module Markio
       file_contents.should match "add_date"
       file_contents.should match "last_visit"
       file_contents.should match "last_modified"
+      file_contents.should match "icon"
+      file_contents.should match "icon_uri"
     end
 
 
@@ -40,7 +44,9 @@ module Markio
         :href => "http://test2.com",
         :add_date => Date.parse('2012-01-12 11:22:33').to_datetime,
         :last_visit => Date.parse('2012-01-13 10:20:30').to_datetime,
-        :last_modified => Date.parse('2012-01-14 10:21:31').to_datetime
+        :last_modified => Date.parse('2012-01-14 10:21:31').to_datetime,
+        :icon => "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+        :icon_uri => "http://www.mozilla.org/2005/made-up-favicon/0-1350925942950"
       })
       file_contents = builder.build_string
       bookmarks = Markio.parse file_contents
@@ -61,7 +67,9 @@ module Markio
         :href => "http://test2.com",
         :add_date => Date.parse('2012-01-12 11:22:33').to_datetime,
         :last_visit => Date.parse('2012-01-13 10:20:30').to_datetime,
-        :last_modified => Date.parse('2012-01-14 10:21:31').to_datetime
+        :last_modified => Date.parse('2012-01-14 10:21:31').to_datetime,
+        :icon => "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+        :icon_uri => "http://www.mozilla.org/2005/made-up-favicon/0-1350925942950"
       })
       file_contents = builder.build_string
       bookmarks = Markio.parse file_contents

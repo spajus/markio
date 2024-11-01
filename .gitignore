@@ -15,3 +15,16 @@ spec/reports
 test/tmp
 test/version_tmp
 tmp
+
+### RubyMine+all Patch ###
+# Ignore everything but code style settings and run configurations
+# that are supposed to be shared within teams.
+.idea/*
+
+!.idea/codeStyles
+!.idea/runConfigurations
+!.idea/jsLinters
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+### END RubyMine+all ###

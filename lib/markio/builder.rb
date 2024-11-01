@@ -74,6 +74,8 @@ END
       params[:add_date] = b.add_date.to_time.to_i if b.add_date
       params[:last_visit] = b.last_visit.to_time.to_i if b.last_visit
       params[:last_modified] = b.last_modified.to_time.to_i if b.last_modified
+      params[:icon_uri] = b.icon_uri if b.icon_uri
+      params[:icon] = b.icon if b.icon
       html.a(b.title, params)
     }
   end
